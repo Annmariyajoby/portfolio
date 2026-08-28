@@ -1,0 +1,36 @@
+.education{
+    width:100%;
+    min-height:100vh;
+    background:#000;
+    color:white;
+    padding:100px 80px;
+}
+
+.education h2{
+    font-size:48px;
+    margin-bottom:50px;
+}
+
+.education-item{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:40px;
+    padding:35px 0;
+    border-top:1px solid #2a2a2a;
+}
+
+.year{
+    color:#8a8a8a;
+    font-size:18px;
+    font-weight:600;
+}
+
+.education-content h3{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.education-content p{
+    color:#bdbdbd;
+    font-size:20px;
+}

@@ -1,0 +1,183 @@
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 80px 80px;
+    background:#000;
+    color:white;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1400px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.hero-text{
+    flex:1.6;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    white-space:nowrap;
+}
+
+.hero-image{
+    flex:1.2;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.hero-image img{
+    width:400px;
+    height:400px;
+    object-fit:contain;      /* Shows the whole image */
+    background:white;        /* Fills any empty space */
+    border-radius:50%;
+    border:6px solid  rgba(139,92,246,.25);
+    box-shadow:0 0 35px  rgba(139,92,246,.25);
+}
+.hero-image img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 50px rgba(139,92,246,.7);
+}
+
+.hero h3{
+    color:#356ba5;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:64px;
+    color:white;
+    margin-bottom:15px;
+    text-shadow:0 0 8px rgba(139,92,246,.25);
+}
+
+.hero h1 span{
+    color:#356ba5;
+}
+.hero h2{
+    font-size:28px;
+    white-space:nowrap;
+}
+
+.hero p{
+    font-size:18px;
+    color:#9ca3af;
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn1,
+.btn2,
+.btn3{
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+/* View Projects */
+.btn1{
+    border:2px solid #8B5CF6;
+    color:#8B5CF6;
+    background:transparent;
+}
+
+.btn1:hover{
+    background:#8B5CF6;
+    color:white;
+    transform:translateY(-5px);
+}
+
+/* Download Resume */
+.btn2{
+    border:2px solid #8B5CF6;
+    color:#8B5CF6;
+    background:transparent;
+}
+
+.btn2:hover{
+    background:#8B5CF6;
+    color:white;
+    transform:translateY(-5px);
+}
+
+/* Contact Me */
+.btn3{
+    border:2px solid #8B5CF6;
+    color:#8B5CF6;
+    background:transparent;
+}
+
+.btn3:hover{
+    background:#8B5CF6;
+    color:white;
+    transform:translateY(-5px);
+}
+
+@media (max-width:768px){
+
+    .hero{
+        padding:120px 30px 60px;
+        text-align:center;
+    }
+
+    .hero-content{
+        flex-direction:column-reverse;
+        gap:40px;
+    }
+
+    .hero-text{
+        width:100%;
+    }
+
+    .hero-image{
+        justify-content:center;
+    }
+
+    .hero-image img{
+        width:220px;
+        height:220px;
+    }
+
+    .hero h1{
+    font-size:60px;
+    line-height:1.1;
+}
+    .hero h2{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .buttons{
+        justify-content:center;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn1:hover,
+    .btn2:hover,
+    .btn3:hover{
+        transform:translateY(-5px) scale(1.05);
+    }
+}

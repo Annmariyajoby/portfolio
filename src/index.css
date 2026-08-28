@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100vh;
+}
+
+body{
+    background:#000;
+    overflow-x:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.light-mode{
+    background:#f5f5f5;
+    color:#111827;
+}
+
+.light-mode .hero,
+.light-mode .skills,
+.light-mode .projects,
+.light-mode .education,
+.light-mode .contact,
+.light-mode footer{
+    background:#ffffff;
+    color:#111827;
+}
+
+.light-mode .project-card,
+.light-mode .skill-card,
+.light-mode .education-card{
+    background:#f3f4f6;
+    color:#111827;
+}
+
+.light-mode .hero h2,
+.light-mode .hero p,
+.light-mode .project-card p{
+    color:#4b5563;
+}
