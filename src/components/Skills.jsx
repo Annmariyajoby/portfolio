@@ -1,5 +1,4 @@
-import "./Skills.css";
-
+import { useState } from "react";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -12,138 +11,97 @@ import {
   FaDatabase,
   FaFigma,
   FaPalette,
+  FaCode,
 } from "react-icons/fa";
-
 import {
   SiPython,
   SiMysql,
   SiMongodb,
 } from "react-icons/si";
+import "./Skills.css";
 
-import {
-  FaCode,
-} from "react-icons/fa";
 function Skills() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const skillCategories = [
+    { id: "all", label: "All Skills" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Languages & Backend" },
+    { id: "database", label: "Database" },
+    { id: "tools", label: "Tools & Design" },
+  ];
+
+  const skillsData = [
+    // Frontend
+    { name: "HTML5", icon: <FaHtml5 />, category: "frontend", color: "#E34F26", type: "Markup" },
+    { name: "CSS3", icon: <FaCss3Alt />, category: "frontend", color: "#1572B6", type: "Styling" },
+    { name: "JavaScript", icon: <FaJs />, category: "frontend", color: "#F7DF1E", type: "Language" },
+    { name: "React", icon: <FaReact />, category: "frontend", color: "#61DAFB", type: "Library" },
+
+    // Languages & Backend
+    { name: "Java", icon: <FaJava />, category: "backend", color: "#f89820", type: "OOP & Systems" },
+    { name: "Python", icon: <SiPython />, category: "backend", color: "#3776AB", type: "Scripting & DSA" },
+    { name: "C", icon: <span className="c-text-icon">C</span>, category: "backend", color: "#00599C", type: "Low-level & Algorithms" },
+    { name: "Node.js", icon: <FaNodeJs />, category: "backend", color: "#68A063", type: "Runtime" },
+
+    // Database
+    { name: "MySQL", icon: <SiMysql />, category: "database", color: "#00758F", type: "Relational DB" },
+    { name: "SQL", icon: <FaDatabase />, category: "database", color: "#3B82F6", type: "Query Language" },
+    { name: "MongoDB", icon: <SiMongodb />, category: "database", color: "#47A248", type: "NoSQL DB" },
+
+    // Tools & Design
+    { name: "Git", icon: <FaGitAlt />, category: "tools", color: "#F05032", type: "Version Control" },
+    { name: "GitHub", icon: <FaGithub />, category: "tools", color: "#8b5cf6", type: "Collaboration" },
+    { name: "VS Code", icon: <FaCode />, category: "tools", color: "#007ACC", type: "IDE" },
+    { name: "Figma", icon: <FaFigma />, category: "tools", color: "#F24E1E", type: "UI/UX Design" },
+    { name: "Canva", icon: <FaPalette />, category: "tools", color: "#00C4CC", type: "Visual Design" },
+  ];
+
+  const filteredSkills =
+    selectedCategory === "all"
+      ? skillsData
+      : skillsData.filter((skill) => skill.category === selectedCategory);
+
   return (
     <section className="skills" id="skills">
-
-      <h2>My Skills</h2>
-
-      {/* Frontend */}
-      <h3 className="category">🌐 Frontend</h3>
-
       <div className="skills-container">
+        <div className="section-header" data-aos="fade-up">
+          <h2 className="section-title">Technical Skills</h2>
+          <p className="section-subtitle">
+            Technologies, programming languages, and developer tools I leverage to build projects.
+          </p>
 
-        <div className="skill-card">
-          <FaHtml5 className="icon html" />
-          <h4>HTML5</h4>
+          {/* Filter Pills */}
+          <div className="skills-filter-group" data-aos="fade-up" data-aos-delay="100">
+            {skillCategories.map((cat) => (
+              <button
+                key={cat.id}
+                className={`filter-btn ${selectedCategory === cat.id ? "active" : ""}`}
+                onClick={() => setSelectedCategory(cat.id)}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="skill-card">
-          <FaCss3Alt className="icon css" />
-          <h4>CSS3</h4>
+        {/* Skills Grid */}
+        <div className="skills-grid" data-aos="fade-up" data-aos-delay="200">
+          {filteredSkills.map((skill, index) => (
+            <div
+              key={index}
+              className="skill-item-card"
+              style={{ "--skill-color": skill.color }}
+            >
+              <div className="skill-icon-wrap" style={{ color: skill.color }}>
+                {skill.icon}
+              </div>
+              <h4 className="skill-name">{skill.name}</h4>
+              <span className="skill-type">{skill.type}</span>
+            </div>
+          ))}
         </div>
-
-        <div className="skill-card">
-          <FaJs className="icon js" />
-          <h4>JavaScript</h4>
-        </div>
-
-        <div className="skill-card">
-          <FaReact className="icon react" />
-          <h4>React</h4>
-        </div>
-
       </div>
-
-      {/* Backend */}
-      <h3 className="category">⚙️ Backend</h3>
-
-      <div className="skills-container">
-
-        <div className="skill-card">
-          <FaNodeJs className="icon node" />
-          <h4>Node.js</h4>
-        </div>
-
-      </div>
-
-      {/* Database */}
-      <h3 className="category">🗄️ Database</h3>
-
-      <div className="skills-container">
-
-        <div className="skill-card">
-          <SiMysql className="icon mysql" />
-          <h4>MySQL</h4>
-        </div>
-
-        <div className="skill-card">
-          <SiMongodb className="icon mongo" />
-          <h4>MongoDB</h4>
-        </div>
-
-        <div className="skill-card">
-          <FaDatabase className="icon database" />
-          <h4>SQL</h4>
-        </div>
-
-      </div>
-
-      {/* Programming */}
-      <h3 className="category">💻 Programming</h3>
-
-      <div className="skills-container">
-
-        <div className="skill-card">
-          <FaJava className="icon java" />
-          <h4>Java</h4>
-        </div>
-
-        <div className="skill-card">
-          <SiPython className="icon python" />
-          <h4>Python</h4>
-        </div>
-
-        <div className="skill-card">
-          <h1 className="icon c">C</h1>
-          <h4>C</h4>
-        </div>
-
-      </div>
-
-      {/* Tools */}
-      <h3 className="category">🛠️ Tools</h3>
-
-      <div className="skills-container">
-
-        <div className="skill-card">
-          <FaGitAlt className="icon git" />
-          <h4>Git</h4>
-        </div>
-
-        <div className="skill-card">
-          <FaGithub className="icon github" />
-          <h4>GitHub</h4>
-        </div>
-
-        <div className="skill-card">
-  <FaCode className="icon vscode" />
-  <h4>VS Code</h4>
-</div>
-
-        <div className="skill-card">
-          <FaFigma className="icon figma" />
-          <h4>Figma</h4>
-        </div>
-
-        <div className="skill-card">
-          <FaPalette className="icon canva" />
-          <h4>Canva</h4>
-        </div>
-
-      </div>
-
     </section>
   );
 }

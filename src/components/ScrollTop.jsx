@@ -6,12 +6,12 @@ function ScrollTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggle = () => {
-      setVisible(window.scrollY > 300);
+    const toggleVisibility = () => {
+      setVisible(window.scrollY > 400);
     };
 
-    window.addEventListener("scroll", toggle);
-    return () => window.removeEventListener("scroll", toggle);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
@@ -22,11 +22,14 @@ function ScrollTop() {
   };
 
   return (
-    visible && (
-      <button className="scroll-top" onClick={scrollToTop}>
-        <FaArrowUp />
-      </button>
-    )
+    <button
+      className={`scroll-top-btn ${visible ? "visible" : ""}`}
+      onClick={scrollToTop}
+      aria-label="Scroll to top"
+      title="Scroll to top"
+    >
+      <FaArrowUp />
+    </button>
   );
 }
 

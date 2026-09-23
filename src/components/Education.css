@@ -1,36 +1,217 @@
-.education{
-    width:100%;
-    min-height:100vh;
-    background:#000;
-    color:white;
-    padding:100px 80px;
+.education {
+  padding: 100px 2rem;
+  background: var(--bg-primary);
+  position: relative;
+  transition: background-color var(--transition-speed) ease;
 }
 
-.education h2{
-    font-size:48px;
-    margin-bottom:50px;
+.education-container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.education-item{
-    display:grid;
-    grid-template-columns:140px 1fr;
-    gap:40px;
-    padding:35px 0;
-    border-top:1px solid #2a2a2a;
+.timeline-wrapper {
+  position: relative;
+  margin-top: 3.5rem;
+  padding-left: 2.5rem;
 }
 
-.year{
-    color:#8a8a8a;
-    font-size:18px;
-    font-weight:600;
+/* Vertical Center/Side Line */
+.timeline-line {
+  position: absolute;
+  top: 15px;
+  bottom: 20px;
+  left: 20px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-light) 60%, var(--border-color) 100%);
+  border-radius: 9999px;
 }
 
-.education-content h3{
-    font-size:30px;
-    margin-bottom:10px;
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
 }
 
-.education-content p{
-    color:#bdbdbd;
-    font-size:20px;
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Node circle */
+.timeline-node {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.timeline-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Card Content */
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-left: 1.5rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-glow);
+}
+
+.timeline-card-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.timeline-year {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  background: var(--tag-bg);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+}
+
+.meta-icon {
+  font-size: 0.8rem;
+}
+
+.timeline-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+}
+
+.status-active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-done {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.timeline-degree {
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.timeline-institution {
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Details list */
+.timeline-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.timeline-details li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-details li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .education {
+    padding: 70px 1.25rem;
+  }
+
+  .timeline-wrapper {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-node {
+    left: -1.75rem;
+    width: 34px;
+    height: 34px;
+  }
+
+  .timeline-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .timeline-card {
+    margin-left: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .timeline-degree {
+    font-size: 1.2rem;
+  }
+
+  .timeline-institution {
+    font-size: 1rem;
+  }
 }

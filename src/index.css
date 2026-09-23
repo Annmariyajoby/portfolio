@@ -1,49 +1,121 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+  --bg-primary: #090d16;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.9);
+  --bg-glass: rgba(11, 15, 25, 0.75);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(139, 92, 246, 0.4);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-hover: #7c3aed;
+  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --accent-glow: rgba(139, 92, 246, 0.25);
+  --tag-bg: rgba(139, 92, 246, 0.15);
+  --tag-text: #c4b5fd;
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(139, 92, 246, 0.25);
+  --transition-speed: 0.3s;
 }
 
-html{
-    scroll-behavior:smooth;
+body.light-mode {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-glow: rgba(124, 58, 237, 0.3);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent: #7c3aed;
+  --accent-light: #8b5cf6;
+  --accent-hover: #6d28d9;
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+  --accent-glow: rgba(124, 58, 237, 0.18);
+  --tag-bg: rgba(124, 58, 237, 0.1);
+  --tag-text: #6d28d9;
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 25px rgba(124, 58, 237, 0.15);
 }
 
-html,
-body,
-#root{
-    width:100%;
-    min-height:100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background:#000;
-    overflow-x:hidden;
-    font-family:Arial, Helvetica, sans-serif;
-}
-.light-mode{
-    background:#f5f5f5;
-    color:#111827;
+html {
+  scroll-behavior: smooth;
 }
 
-.light-mode .hero,
-.light-mode .skills,
-.light-mode .projects,
-.light-mode .education,
-.light-mode .contact,
-.light-mode footer{
-    background:#ffffff;
-    color:#111827;
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  line-height: 1.6;
 }
 
-.light-mode .project-card,
-.light-mode .skill-card,
-.light-mode .education-card{
-    background:#f3f4f6;
-    color:#111827;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.light-mode .hero h2,
-.light-mode .hero p,
-.light-mode .project-card p{
-    color:#4b5563;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Global utility classes */
+.section-title {
+  text-align: center;
+  font-size: 2.75rem;
+  margin-bottom: 0.75rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
